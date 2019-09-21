@@ -20,7 +20,7 @@ Obtém CEP diretamente dos serviços dos Correios
 
 ```
 
-### Quando ocorrer Error
+### Quando ocorre um error
 
 Neste caso será retornado um `"NOK"` na propriedade `Result` e o detelhe do erro na propriedade `Mensagem`
 
