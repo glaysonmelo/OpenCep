@@ -2,9 +2,15 @@
 
 Obtém CEP diretamente dos serviços dos Correios
 
+
+## Features
+
+* Sem limites de utilização.
+
+
 # Como utilizar
 
-## Objeto de retorno
+## Padrão de retorno
 
 ``` C#
   public class CepResult
