@@ -9,12 +9,39 @@ namespace OpenCep.Services
 {
     public class CepResult
     {
-        public string Cep { get; set; }
-        public string UF { get; set; }
-        public string Cidade { get; set; }
-        public string Bairro { get; set; }
-        public string Endereco { get; set; }
+        public CepResult()
+        {
+            this.Result = "OK";
+            this.Mensagem = "Sucesso";
+        }
 
-        public string MensagemSistema { get; set; }
+        public string Cep { get;  set; }
+        public string UF { get;  set; }
+        public string Cidade { get;  set; }
+        public string Bairro { get;  set; }
+        public string Endereco { get;  set; }
+        public string Result { get; private set; }
+
+        private string _Mensagem;
+        public string Mensagem
+        {
+            get
+            {
+                return _Mensagem;
+            }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    Result = "OK";
+                    _Mensagem = "Sucesso";
+                }
+                else
+                {
+                    Result = "NOK";
+                    _Mensagem = value;
+                }
+            }
+        }
     }
 }

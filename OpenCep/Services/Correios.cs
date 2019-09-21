@@ -20,6 +20,24 @@ namespace OpenCep.Services
         {
             CepResult _result = new CepResult();
 
+            if (string.IsNullOrWhiteSpace(cep))
+            {
+                _result.Mensagem = "Cep não informado";
+                return _result;
+            }
+
+            if (cep.Length < 8)
+            {
+                _result.Mensagem = "Cep deve conter 8 caracteres";
+                return _result;
+            }
+
+            if (cep.Length < 8)
+            {
+                _result.Mensagem = "Cep possui mais de 8 caracteres";
+                return _result;
+            }
+
             try
             {
                 WebRequest request = WebRequest.Create(url);
@@ -50,17 +68,17 @@ namespace OpenCep.Services
                 }
                 else
                 {
-                    _result.MensagemSistema = $"O seguinte erro ocorreu : {response.StatusCode}";
+                    _result.Mensagem = $"O seguinte erro ocorreu : {response.StatusCode}";
                 }
 
             }
             catch (WebException e)
             {
-                _result.MensagemSistema = $"O seguinte erro ocorreu : {e.Status}";
+                _result.Mensagem = $"O seguinte erro ocorreu : {e.Status}";
             }
             catch (Exception ex)
             {
-                _result.MensagemSistema = ex.Message;
+                _result.Mensagem = ex.Message;
             }
 
             return _result;
@@ -79,11 +97,10 @@ namespace OpenCep.Services
                 _CEP.Cidade = result.Descendants("cidade").First().Value;
                 _CEP.Bairro = result.Descendants("bairro").First().Value;
                 _CEP.Endereco = result.Descendants("end").First().Value;
-                _CEP.MensagemSistema = "OK";
             }
             catch (Exception)
             {
-                _CEP.MensagemSistema = "Não foi possível interpretar XML de resposta!";
+                _CEP.Mensagem = "Não foi possível interpretar XML de resposta!";
             }
 
 

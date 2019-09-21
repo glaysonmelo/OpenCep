@@ -19,7 +19,7 @@ namespace OpenCep
 
             var _result = _c.Consulta(_key);
 
-            Console.WriteLine(_result.MensagemSistema);
+            Console.WriteLine(_result.Mensagem);
 
             Console.Read();
 
