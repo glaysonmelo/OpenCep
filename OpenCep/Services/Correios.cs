@@ -16,7 +16,7 @@ namespace OpenCep.Services
     {
         const string url = "https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente";
 
-        public CepResult Consulta(string cep)
+        public CepResult ConsultaCep(string cep)
         {
             CepResult _result = new CepResult();
 

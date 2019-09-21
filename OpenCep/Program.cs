@@ -17,7 +17,7 @@ namespace OpenCep
 
             var _key = Console.ReadLine();
 
-            var _result = _c.Consulta(_key);
+            var _result = _c.ConsultaCep(_key);
 
             Console.WriteLine(_result.Mensagem); 
 
