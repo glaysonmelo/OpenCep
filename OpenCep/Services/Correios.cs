@@ -74,7 +74,7 @@ namespace OpenCep.Services
             }
             catch (WebException e)
             {
-                _result.Mensagem = $"O seguinte erro ocorreu : {e.Status}";
+                _result.Mensagem = $"O seguinte erro ocorreu : ({e.Status}) {e.Message} ";
             }
             catch (Exception ex)
             {
