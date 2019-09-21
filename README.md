@@ -7,6 +7,9 @@ Obtém CEP diretamente dos serviços dos Correios
 
 ## Realizando uma consulta
 
+``` C#
 Correios _correios = new Correios();
 
 var _result = _correios.Consulta("32000000");
+
+```
